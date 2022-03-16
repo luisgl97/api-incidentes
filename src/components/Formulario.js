@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 
 export const Formulario = (props) => {
 
+  const {setFecha, setIncidencia, setArrayObjeto} = props;
   const {
     register,
     handleSubmit,
@@ -11,7 +12,35 @@ export const Formulario = (props) => {
 
   const onSubmit = (fecha, e) => {
     console.log(fecha);
-    props.obtenerDatos(fecha);
+    obtenerDatos(fecha);
+  };
+
+  const obtenerDatos = async (fecha) => {
+
+    try {
+
+      setFecha(fecha);
+
+      const datos = await fetch(
+        "http://ogit.imp.gob.pe/impapi/sel_seguridad_incidente",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-access-token":
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VfaWQiOjM1OSwicGVyX2lkIjozNDEsIm5vbWJyZSI6IkVSTkVTVE8gIENBTkNITyBST0RSw41HVUVaICIsImlhdCI6MTY0NzQ1MjAyMiwiZXhwIjoxNjQ3NDgwODIyfQ.MKnORkTb7dxShqaKiLOXJ_pRx3ndn025vcKTBjWNYT4",
+          },
+          body: JSON.stringify(fecha),
+        }
+      );
+      const incidencias = await datos.json();
+      setIncidencia(incidencias);
+      const {data} = incidencias;
+      setArrayObjeto(data);
+      
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
