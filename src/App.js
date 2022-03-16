@@ -10,14 +10,7 @@ function App() {
     setFecha(fecha);
   };
 
-
-  // console.log(fecha);
-
   const obtenerDatos = async () => {
-
-    // const fechaBuscar = {
-    //   fecha: "2022-02-24",
-    // };
 
     try {
       const datos = await fetch(
@@ -27,14 +20,13 @@ function App() {
           headers: {
             "Content-Type": "application/json",
             "x-access-token":
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VfaWQiOjM1OSwicGVyX2lkIjozNDEsIm5vbWJyZSI6IkVSTkVTVE8gIENBTkNITyBST0RSw41HVUVaICIsImlhdCI6MTY0NzM2NjczMSwiZXhwIjoxNjQ3Mzk1NTMxfQ.oPwzLOS19Ylp3oumCRmvQlZSkqjznoF-4L-VPOpuTf0",
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VfaWQiOjM1OSwicGVyX2lkIjozNDEsIm5vbWJyZSI6IkVSTkVTVE8gIENBTkNITyBST0RSw41HVUVaICIsImlhdCI6MTY0NzM5NzAwNywiZXhwIjoxNjQ3NDI1ODA3fQ.pFWoX3JjRRDEarsKCGvKRSzlAPgi-4f46ODTQBg7vmE",
           },
           body: JSON.stringify(fecha),
         }
       );
       const incidencias = await datos.json();
       setIncidencia(incidencias);
-      // setArrayObjeto(objeto);
       const {data} = incidencias;
       setArrayObjeto(data);
       
@@ -53,7 +45,6 @@ function App() {
         },
         body: JSON.stringify(arrayObjeto)
       })
-      // const ga = await res.json();
       console.log("Mandar datos excel");
       console.log(arrayObjeto)
     } catch (error) {
@@ -72,6 +63,7 @@ function App() {
         Exportar datos
       </button>
       <ul>
+        <h1>Datos de la fecha {fecha.fecha}</h1>
         {incidencia.data?.map((item) => (
           <li key={item.inc_id}>
             {item.uni_nombre} - {item.tip_nombre}

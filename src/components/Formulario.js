@@ -1,9 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 
 export const Formulario = (props) => {
-
-  const [fecha, setFecha] = useState({});
 
   const {
     register,
@@ -11,28 +9,24 @@ export const Formulario = (props) => {
     formState: { errors },
   } = useForm();
 
-  useEffect(() => {
-    console.log("cambiaste la fecha");
-  }, [fecha])
-  
-
   const onSubmit = (fecha, e) => {
     console.log(fecha);
     props.addFecha(fecha);
   };
+
   return (
     <div>
       <h1>Formulario</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
           
-        <label>Fecha</label>
+        <label className="me-2">Fecha</label>
         <input
           type="date"
           name="fecha"
           {...register("fecha", {
             required: {
               value: true,
-              message: "Date Obligatorio",
+              message: "Seleccionar la Fecha",
             },
           })}
         />
@@ -41,7 +35,7 @@ export const Formulario = (props) => {
             {errors.fecha.message}
           </span>
         )}
-        <button className="mt-2">Ok</button>
+        <button className="btn btn-warning btn-sm mt-2 ms-2 mb-2" >Ok</button>
       </form>
     </div>
   );
