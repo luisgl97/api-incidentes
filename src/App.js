@@ -6,13 +6,16 @@ function App() {
   const [arrayObjeto, setArrayObjeto] = useState([]);
   const [fecha, setFecha] = useState({});
 
-  const addFecha = (fecha) => {
-    setFecha(fecha);
-  };
+  // const addFecha = (fecha) => {
+  //   setFecha(fecha);
+  // };
 
-  const obtenerDatos = async () => {
+  const obtenerDatos = async (fecha) => {
 
     try {
+
+      setFecha(fecha);
+
       const datos = await fetch(
         "http://ogit.imp.gob.pe/impapi/sel_seguridad_incidente",
         {
@@ -55,10 +58,7 @@ function App() {
   return (
     <div className="container">
       <h1>Api</h1>
-      <Formulario addFecha={addFecha}/>
-      <button className="btn btn-primary " onClick={obtenerDatos}>
-        Obtener datos
-      </button>
+      <Formulario obtenerDatos={obtenerDatos}/>
       <button className="btn btn-success ms-2" onClick={mandarDatosExcel}>
         Exportar datos
       </button>

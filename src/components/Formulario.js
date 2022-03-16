@@ -11,7 +11,7 @@ export const Formulario = (props) => {
 
   const onSubmit = (fecha, e) => {
     console.log(fecha);
-    props.addFecha(fecha);
+    props.obtenerDatos(fecha);
   };
 
   return (
@@ -35,7 +35,7 @@ export const Formulario = (props) => {
             {errors.fecha.message}
           </span>
         )}
-        <button className="btn btn-warning btn-sm mt-2 ms-2 mb-2" >Ok</button>
+        <button className="btn btn-warning btn-sm mt-2 ms-2 mb-2" >Obtener Datos</button>
       </form>
     </div>
   );
