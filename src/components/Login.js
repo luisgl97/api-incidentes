@@ -37,30 +37,31 @@ export const Login = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        className="form-control my-2"
-        type="email"
-        name="u"
-        placeholder="Ingrese email"
-        {...register("u", { required: true })}
-      />
-      {errors.u && (
-        <span className="text-danger text-small d-block">Ingrese el email</span>
-      )}
-      <input
-        className="form-control my-2"
-        type="password"
-        name="p"
-        placeholder="Ingrese password"
-        {...register("p", { required: true })}
-      />
-      {errors.password && (
-        <span className="text-danger text-small d-block">
-          Ingrese correctamente el password
-        </span>
-      )}
-      <button className="btn btn-primary">Login</button>
-    </form>
-  );
+    <center>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input
+          className="form-control my-2"
+          type="email"
+          name="u"
+          placeholder="Ingrese email"
+          {...register("u", { required: true })}
+        />
+        {errors.u && (
+          <span className="text-danger text-small d-block">Ingrese el email</span>
+        )}
+        <input
+          className="form-control my-2"
+          type="password"
+          name="p"
+          placeholder="Ingrese password"
+          {...register("p", { required: true })}
+        />
+        {errors.password && (
+          <span className="text-danger text-small d-block">
+            Ingrese correctamente el password
+          </span>
+        )}
+        <button id="boton_login"className="btn btn-primary">Login</button>
+      </form>
+    </center>);
 };

@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="container ">
       <div className="text-center">
-      <h1>Api Incidentes</h1>
+      <h1>Consulta de Incidencias</h1>
       <hr />
       <Login setToken={setToken}/>
       <Formulario token={token} setFecha={setFecha} setIncidencia={setIncidencia} setArrayObjeto={setArrayObjeto}/>
