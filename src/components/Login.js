@@ -15,26 +15,23 @@ export const Login = (props) => {
     obtenerToken(data);
   };
 
-  const obtenerToken =  async (data)=>{
+  const obtenerToken = async (data) => {
     try {
+      const res = await fetch("http://ogit.imp.gob.pe/impapi/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const token = await res.json();
+      console.log(token.status);
+      setToken(token.sesion.token);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-        const res = await fetch(
-          "http://ogit.imp.gob.pe/impapi/login",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-          }
-        );
-        const token = await res.json();
-        console.log(token.sesion.token);
-        setToken(token.sesion.token);
-      } catch (error) {
-        console.log(error);
-      }
-  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
