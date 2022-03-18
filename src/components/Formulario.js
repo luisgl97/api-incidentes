@@ -44,10 +44,10 @@ export const Formulario = (props) => {
 
   return (
     <div>
-      <h1>Formulario</h1>
+      <h1 id="titulo_form">Formulario</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
           
-        <label className="me-2">Fecha</label>
+        <label className="me-2"><b>Fecha de Búsqueda: </b></label>
         <input
           type="date"
           name="fecha"
@@ -63,7 +63,7 @@ export const Formulario = (props) => {
             {errors.fecha.message}
           </span>
         )}
-        <button className="btn btn-warning btn-sm mt-2 ms-2 mb-2" >Obtener Datos</button>
+        <button className="btn btn-block btn-warning btn-sm mt-3 ms-3 mb-3" >Obtener Datos</button>
       </form>
     </div>
   );

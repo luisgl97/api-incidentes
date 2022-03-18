@@ -26,11 +26,11 @@ export const ExportarDatos = (props) => {
   };
   return (
     <div>
-       <button className="btn btn-success ms-2" onClick={mandarDatosExcel}>
-        Exportar datos
+       <button id="boton_exportar" className="btn btn-lg btn-block btn-success ms-2" onClick={mandarDatosExcel}>
+        Exportar Datos
       </button>
       <ul>
-        <h1>Datos de la fecha {fecha.fecha}</h1>
+        <h1 id="titulo_tabla">Datos de la fecha {fecha.fecha}</h1>
         {incidencia.data?.map((item) => (
           <li key={item.inc_id} style={{'listStyle':'none'}}>
             {item.uni_nombre} - {item.tip_nombre}
