@@ -7,14 +7,17 @@ export const ExportarDatos = (props) => {
   const mandarDatosExcel = async () => {
     try {
 
+      const urlSheetBestApi='https://sheet.best/api/sheets/08289069-f48f-4ae7-86e9-a84f3763e456';
+
       //Api sheetbest para exportar los objetos en 
-      const res = await fetch('https://sheet.best/api/sheets/08289069-f48f-4ae7-86e9-a84f3763e456',{
+      const res = await fetch(urlSheetBestApi,{
         method: 'POST',
         headers:{
           "Content-Type": "application/json",
         },
         body: JSON.stringify(arrayObjeto)
       })
+      console.log(res);
       console.log("Mandar datos excel");
       console.log(arrayObjeto)
     } catch (error) {

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 export const Formulario = (props) => {
 
-  const {setFecha, setIncidencia, setArrayObjeto} = props;
+  const {token, setFecha, setIncidencia, setArrayObjeto} = props;
   const {
     register,
     handleSubmit,
@@ -27,8 +27,7 @@ export const Formulario = (props) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "x-access-token":
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VfaWQiOjM1OSwicGVyX2lkIjozNDEsIm5vbWJyZSI6IkVSTkVTVE8gIENBTkNITyBST0RSw41HVUVaICIsImlhdCI6MTY0NzQ1MjAyMiwiZXhwIjoxNjQ3NDgwODIyfQ.MKnORkTb7dxShqaKiLOXJ_pRx3ndn025vcKTBjWNYT4",
+            "x-access-token": token,
           },
           body: JSON.stringify(fecha),
         }
