@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const ExportarDatos = (props) => {
-    const {fecha, incidencia, arrayObjeto} = props;
+    const {fecha, incidencia} = props;
     
     
   const mandarDatosExcel = async () => {
@@ -15,11 +15,10 @@ export const ExportarDatos = (props) => {
         headers:{
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(arrayObjeto)
+        body: JSON.stringify(incidencia)
       })
       console.log(res);
       console.log("Mandar datos excel");
-      console.log(arrayObjeto)
     } catch (error) {
       console.log(error);
     }
@@ -30,8 +29,8 @@ export const ExportarDatos = (props) => {
         Exportar Datos
       </button>
       <ul>
-        <h1 id="titulo_tabla">Datos de la fecha {fecha.fecha}</h1>
-        {incidencia.data?.map((item) => (
+        <h1 id="titulo_tabla">Datos del dia {fecha.fecha}</h1>
+        {incidencia?.map((item) => (
           <li key={item.inc_id} style={{'listStyle':'none'}}>
             {item.uni_nombre} - {item.tip_nombre}
           </li>

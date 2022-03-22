@@ -25,7 +25,7 @@ export const Login = (props) => {
         body: JSON.stringify(data),
       });
       const token = await res.json();
-      console.log(token.status);
+      // console.log(token.status);
       setToken(token.sesion.token);
     } catch (error) {
       console.log(error);

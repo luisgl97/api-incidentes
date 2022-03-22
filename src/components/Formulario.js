@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 export const Formulario = (props) => {
 
-  const {token, setFecha, setIncidencia, setArrayObjeto} = props;
+  const {token, setFecha, setIncidencia} = props;
   const {
     register,
     handleSubmit,
@@ -33,9 +33,8 @@ export const Formulario = (props) => {
         }
       );
       const incidencias = await datos.json();
-      setIncidencia(incidencias);
       const {data} = incidencias;
-      setArrayObjeto(data);
+      setIncidencia(data);
       
     } catch (error) {
       console.log(error);

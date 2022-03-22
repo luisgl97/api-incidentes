@@ -1,15 +1,18 @@
-import { useState} from "react";
+import { useState } from "react";
 import {ExportarDatos} from "./components/ExportarDatos";
 import { Formulario } from "./components/Formulario";
+import { FormularioMes } from "./components/FormularioMes";
 import { Login } from "./components/Login";
+import { MostrarDatosMes } from "./components/MostrarDatosMes";
 
 function App() {
   
   const [token, setToken] = useState();
 
   const [incidencia, setIncidencia] = useState([]);
-  const [arrayObjeto, setArrayObjeto] = useState([]);
+  const [incidenciaMes, setIncidenciaMes] = useState([]);
   const [fecha, setFecha] = useState({});
+  const [fechaMes, setFechaMes] = useState();
 
   return (
     <div className="container ">
@@ -17,9 +20,11 @@ function App() {
       <h1>Consulta de Incidencias</h1>
       <hr />
       <Login setToken={setToken}/>
-      <Formulario token={token} setFecha={setFecha} setIncidencia={setIncidencia} setArrayObjeto={setArrayObjeto}/>
+      <Formulario token={token} setFecha={setFecha} setIncidencia={setIncidencia}/>
       <hr />
-      <ExportarDatos fecha={fecha} incidencia={incidencia} arrayObjeto={arrayObjeto}/>
+      <FormularioMes token={token} setFechaMes={setFechaMes} setIncidenciaMes={setIncidenciaMes}/>
+      <ExportarDatos fecha={fecha} incidencia={incidencia}/>
+      <MostrarDatosMes fechaMes={fechaMes} incidenciaMes={incidenciaMes}/>
       </div>
       
     </div>
