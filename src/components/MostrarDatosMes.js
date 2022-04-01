@@ -6,7 +6,7 @@ export const MostrarDatosMes = (props) => {
     <div>
       <ul>
         <h1 id="titulo_tabla">Datos del Mes {fechaMes}</h1>
-        {incidenciaMes?.map((i) =>
+        {incidenciaMes?.map((i) => 
           i.map((item) => (
             <li key={item.inc_id} style={{ listStyle: "none" }}>
               {item.uni_nombre} - {item.tip_nombre}
