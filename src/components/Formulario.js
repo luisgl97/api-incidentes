@@ -34,6 +34,7 @@ export const Formulario = (props) => {
       );
       const incidencias = await datos.json();
       const {data} = incidencias;
+      console.log(data);
       setIncidencia(data);
       
     } catch (error) {

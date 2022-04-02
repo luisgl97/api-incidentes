@@ -3,7 +3,7 @@ import {ExportarDatos} from "./components/ExportarDatos";
 import { Formulario } from "./components/Formulario";
 import { FormularioMes } from "./components/FormularioMes";
 import { Login } from "./components/Login";
-import { MostrarDatosMes } from "./components/MostrarDatosMes";
+import { ExportarDatosMes } from "./components/ExportarDatosMes";
 
 function App() {
   
@@ -22,9 +22,10 @@ function App() {
       <Login setToken={setToken}/>
       <Formulario token={token} setFecha={setFecha} setIncidencia={setIncidencia}/>
       <hr />
-      <FormularioMes token={token} setFechaMes={setFechaMes} setIncidenciaMes={setIncidenciaMes}/>
       <ExportarDatos fecha={fecha} incidencia={incidencia}/>
-      <MostrarDatosMes fechaMes={fechaMes} incidenciaMes={incidenciaMes}/>
+      <FormularioMes token={token} setFechaMes={setFechaMes} setIncidenciaMes={setIncidenciaMes}/>
+    
+      <ExportarDatosMes fechaMes={fechaMes} incidenciaMes={incidenciaMes}/>
       </div>
       
     </div>

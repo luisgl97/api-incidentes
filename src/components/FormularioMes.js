@@ -30,7 +30,7 @@ export const FormularioMes = (props) => {
       let fM = `${fechaMes.fecha}-${dia}`;//"2020-01-01";
       // console.log(fM);
       objetoFecha["fecha"] = fM; // objetoFecha={ fecha:"2020-01-01" }
-      console.log(objetoFecha);
+      // console.log(objetoFecha);
       obtenerDatos(objetoFecha);
     }
   };
@@ -51,7 +51,7 @@ export const FormularioMes = (props) => {
       );
       const incidenciasMes = await datos.json();
       const { data } = incidenciasMes;
-      setIncidenciaMes((incidenciaMes) => [...incidenciaMes, data]);
+      setIncidenciaMes((incidenciaMes) => [...incidenciaMes, ...data]);
     } catch (error) {
       console.log(error);
     }
